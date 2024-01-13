@@ -3,4 +3,3 @@ werkzeug
 flask_session
 cs50
 functools
-sqlite3
