@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %} Friends' Watchlist {% endblock %}
+
+{% block content %}
+
+<div class="header text-center">
+    <h1>Friends' Watchlist</h1>
+</div>
+
+<div class="container text-center">
+    <form action="/friendswl" method="post" class="mb-3">
+        <input name="username" type="text" class="form-control w-auto mx-auto" placeholder="Friends' Username"> 
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+   
+</div>
+
+<div class="section text-center">
+    <h2 class="mb-4">{{ friend_username }}'s Watchlist</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Ratings</th>
+                <th>Reviews</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in watchlist %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>
+                    {% for _ in range(row.rating) %}
+                        &#9733;
+                    {% endfor %}                                                   
+                </td>
+                <td>{{ row.review }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
