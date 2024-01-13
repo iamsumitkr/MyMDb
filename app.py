@@ -161,5 +161,7 @@ def friendswl():
         return render_template("friendswl.html")
 
 
-    
+from app import app
 
+if __name__ == '__main__':
+    app.run(debug=True)
