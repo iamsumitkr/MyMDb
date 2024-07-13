@@ -1,3 +1,5 @@
 Procfile
 data.db
 __pycache__/
+dump_postgres.sql
+dump.sql
