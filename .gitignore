@@ -1,0 +1,3 @@
+Procfile
+data.db
+__pycache__/

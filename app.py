@@ -15,7 +15,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite databse
-db = SQL("sqlite:///data.db")
+# db = SQL("sqlite:///data.db")
+db_url = os.getenv("DATABASE_URL", "postgresql://mymdb_database_user:NmmimXgCSWnMZCuxRRv55c04Q0e4kbTW@dpg-cq97ueiju9rs73b1jt6g-a.oregon-postgres.render.com/mymdb_database")
+db = SQL(db_url)
+# postgresql://mymdb_database_user:NmmimXgCSWnMZCuxRRv55c04Q0e4kbTW@dpg-cq97ueiju9rs73b1jt6g-a.oregon-postgres.render.com/mymdb_database
 
 def apology(message, code=400):
     """Render message as an apology to user."""
