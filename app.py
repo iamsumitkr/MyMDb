@@ -16,7 +16,7 @@ Session(app)
 
 # Configure CS50 Library to use SQLite databse
 # db = SQL("sqlite:///data.db")
-db_url = os.getenv("DATABASE_URL", "postgresql://mymdb_database_user:NmmimXgCSWnMZCuxRRv55c04Q0e4kbTW@dpg-cq97ueiju9rs73b1jt6g-a.oregon-postgres.render.com/mymdb_database")
+db_url = os.getenv("DATABASE_URL", "postgresql://mymdb_database_ite2_user:ajPJpUgxBLSKT91DCwiLJUGnH9NS3OWv@dpg-cq9mlqdds78s739fqk30-a.oregon-postgres.render.com/mymdb_database_ite2")
 db = SQL(db_url)
 # postgresql://mymdb_database_user:NmmimXgCSWnMZCuxRRv55c04Q0e4kbTW@dpg-cq97ueiju9rs73b1jt6g-a.oregon-postgres.render.com/mymdb_database
 
@@ -64,11 +64,12 @@ def register():
 
         # Check for user error
         checkUsername = db.execute("SELECT COUNT(*) FROM users WHERE username = ?", username)
+        print("This is what we get in check username: ", checkUsername)
         if not username:
             return apology("missing username")
         elif not password:
             return apology("missing password")
-        elif checkUsername[0]["COUNT(*)"] == 1:
+        elif checkUsername[0]["count"] == 1:
             return apology("username already exists")
         elif password != confirmation:
             return apology("password don't match")
